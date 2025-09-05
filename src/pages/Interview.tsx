@@ -137,28 +137,18 @@ const Interview = () => {
             const audio = new Audio(URL.createObjectURL(nextQuestionBlob));
             await audio.play();
             
-            // Check if interview is finished
-            const audioText = await audio.src; // This would need actual transcription
-            if (audioText.includes("Interview finished")) {
-              setState(prev => ({
-                ...prev,
-                isLoading: false,
-                currentQuestion: "Interview completed! Thank you.",
-                lastTranscript: "Interview session completed successfully."
-              }));
-              
-              toast({
-                title: "Interview Complete",
-                description: "You can now view your results."
-              });
-            } else {
-              setState(prev => ({
-                ...prev,
-                isLoading: false,
-                currentQuestion: "Next question is playing...",
-                lastTranscript: "Answer submitted successfully. Listen for the next question."
-              }));
-            }
+            // Update state for next question
+            setState(prev => ({
+              ...prev,
+              isLoading: false,
+              currentQuestion: "Listen carefully to the current question and provide your answer.",
+              lastTranscript: "Answer submitted successfully. Ready for next question."
+            }));
+            
+            toast({
+              title: "Answer Submitted",
+              description: "Listen for the next question and click Start Recording when ready."
+            });
           } else {
             throw new Error("Failed to submit answer");
           }

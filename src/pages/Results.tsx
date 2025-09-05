@@ -32,19 +32,19 @@ const Results = () => {
 
   const fetchResults = async () => {
     try {
-      const response = await fetch("http://localhost:8000/results");
-      const resultsData = await response.json();
+      // Note: /results endpoint not implemented yet in backend
+      // const response = await fetch("http://localhost:8000/results");
+      // const resultsData = await response.json();
       
-      // Calculate average score if not provided
-      const avgScore = resultsData.average_score || 
-        (resultsData.results.length > 0 
-          ? resultsData.results.reduce((sum: number, r: InterviewResult) => sum + r.score, 0) / resultsData.results.length
-          : 0);
+      // Mock data for now until backend implements /results endpoint
+      const resultsData = {
+        results: [],
+        average_score: 0,
+        strengths: [],
+        weaknesses: []
+      };
       
-      setData({
-        ...resultsData,
-        average_score: avgScore
-      });
+      setData(resultsData);
     } catch (error) {
       console.error("Error fetching results:", error);
       toast({
