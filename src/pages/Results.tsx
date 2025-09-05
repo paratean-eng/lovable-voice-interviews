@@ -32,7 +32,7 @@ const Results = () => {
 
   const fetchResults = async () => {
     try {
-      const response = await fetch("/results");
+      const response = await fetch("http://localhost:8000/results");
       const resultsData = await response.json();
       
       // Calculate average score if not provided
