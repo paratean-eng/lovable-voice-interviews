@@ -33,7 +33,7 @@ const Results = () => {
   const fetchResults = async () => {
     try {
       // Note: /results endpoint not implemented yet in backend
-      // const response = await fetch("http://localhost:8000/results");
+      // const response = await fetch("http://127.0.0.1:8000/results");
       // const resultsData = await response.json();
       
       // Mock data for now until backend implements /results endpoint

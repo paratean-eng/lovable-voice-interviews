@@ -32,7 +32,7 @@ const Interview = () => {
     try {
       setState(prev => ({ ...prev, isLoading: true }));
       
-      const response = await fetch("http://localhost:8000/start_interview", { method: "POST" });
+      const response = await fetch("http://127.0.0.1:8000/start_interview", { method: "POST" });
       const blob = await response.blob();
       
       const audio = new Audio(URL.createObjectURL(blob));
@@ -125,7 +125,7 @@ const Interview = () => {
           formData.append("audio", audioBlob, "answer.wav");
           formData.append("video", videoBlob, "answer.mp4");
           
-          const response = await fetch("http://localhost:8000/submit_answer", {
+          const response = await fetch("http://127.0.0.1:8000/submit_answer", {
             method: "POST",
             body: formData
           });
